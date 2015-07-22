@@ -24,10 +24,3 @@
   when: postgresql_users|length > 0
   no_log: True
   
-  #This is explicitly needed to handle a postgres bug that prevents restart of service
-  #https://bugs.mageia.org/show_bug.cgi?id=12782
-- name: PostgreSQL | Update postgresql dir ownership to created users and group
-  file: path=/var/run/postgresql
-        state=directory
-        owner=postgres
-        group=postgres
