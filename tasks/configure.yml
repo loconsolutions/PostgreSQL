@@ -10,6 +10,9 @@
 - name: Config | Ensure the logging directory exists
   file: state=directory dest="{{postgresql_log_directory}}" owner="{{postgresql_admin_user}}" group="{{postgresql_admin_user}}"
   when: 'postgresql_log_directory.startswith("/")'
+  
+- name: Config | Ensure the postgres directory exists
+  file: state=directory dest="{{postgresql_run_directory}}" owner="{{postgresql_admin_user}}" group="{{postgresql_admin_user}}"
 
 - name: Install service file on Centos/Rhel 7
   template: src="postgresql.service.j2" dest="/etc/systemd/system/postgresql{{ join_char | default("-")}}{{ postgresql_version }}.service"
