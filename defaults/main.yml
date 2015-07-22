@@ -61,6 +61,8 @@ postgresql_hba_file: "{{postgresql_conf_directory}}/pg_hba.conf"
 postgresql_ident_file: "{{postgresql_conf_directory}}/pg_ident.conf"
 # Use data in another directory
 postgresql_data_directory: "/var/lib/pgsql/{{postgresql_version}}/{{postgresql_cluster_name}}"
+# Postgres run directory
+postgresql_run_directory: "/var/run/postgresql/"
 # If external_pid_file is not explicitly set, on extra PID file is written
 postgresql_external_pid_file: "/var/run/{{postgresql_version}}-{{postgresql_cluster_name}}.pid"
 
